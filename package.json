@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@vaadin/icon": "^23.3.0",
+    "@vaadin/icons": "^23.3.0",
+    "@vaadin/vaadin-lumo-styles": "^23.3.0",
     "lit": "^2.0.2"
   },
   "devDependencies": {

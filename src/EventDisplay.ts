@@ -11,9 +11,6 @@ export class EventDisplay extends LitElement{
 	})
 	evt: LxEvents | undefined
 	
-	@state()
-	evtState: LxEvents = [];
-	
 	static styles = css`
 	
 		event-header {
@@ -21,13 +18,20 @@ export class EventDisplay extends LitElement{
 		}
 		:host{
 			background-color: #dcd9d9;
+			width: 100%;
+			font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+		#inner{
+			max-width: 400px;
 		}
 	`;
 	
 	render(){
 		
 		return html`
+			<div id="inner">
 			${
+				
 				repeat(this.evt!, (e: LxEvent) => e.uuid, (i:LxEvent, idx: number)=>html`
 					<event-header name="${i.name}" 
 						year=${i.year}
@@ -43,6 +47,7 @@ export class EventDisplay extends LitElement{
 				
 				`)
 			}
+			</div>
 		`;
 	}
 	
