@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { css, html, LitElement, render as REN } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import '@vaadin/virtual-list';
 import {repeat} from 'lit/directives/repeat.js';
@@ -40,8 +40,21 @@ export class EventDisplay extends LitElement{
 	`;
 
 	listRenderer: VirtualListRenderer<LxEvent> = (root, list, {item, index}) => {
-		console.log("rendering");
-		root.textContent = `#${index}: ${item.name}`
+		const templat = html`
+			<event-header name="${item.name}" 
+				year=${item.year}
+				month=${item.month}
+				dayOfMonth=${item.dayOfMonth}
+				hours=${item.hour}
+				minutes=${item.minutes}
+				seconds=${item.seconds}>
+			<json-viewer>
+				${JSON.stringify(item.payload)}
+			</json-viewer>
+		</event-header>`
+
+		REN(templat, root);
+
 	  };
 	
 	render(){
