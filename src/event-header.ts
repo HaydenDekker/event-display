@@ -2,6 +2,8 @@ import { css, html, LitElement } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 import '@vaadin/icon';
 import { Icon } from "@vaadin/icon";
+import '@vaadin/icons';
+import '@vaadin/vaadin-lumo-styles/vaadin-iconset.js';
 
 @customElement('event-header')
 export class EventHeader extends LitElement{
@@ -43,7 +45,7 @@ export class EventHeader extends LitElement{
 		.top-row{
 			display: flex;
 			flex-direction: row;
-			padding: .1em .52em;
+			padding: .2em .52em;
 			align-items: center;
 			font-size: .8em;
 		}

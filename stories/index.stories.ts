@@ -6,7 +6,8 @@ export default {
   title: 'EventDisplay',
   component: 'event-display',
   argTypes: {
-    events: { control: 'text' }
+    events: { control: 'text' },
+    panelName: {control: 'text'}
   },
 };
 
@@ -18,12 +19,14 @@ interface Story<T> {
 
 interface ArgTypes {
   title?: string;
-  events?: string
+  events?: string;
+  panelName?: string;
 }
 
 const Template: Story<ArgTypes> = ({
   title = 'Hello world',
-  events = '[]'
+  events = '[]',
+  panelName = 'Simple Event Panel'
 }: ArgTypes) => {
   
   var evts;
@@ -34,7 +37,7 @@ const Template: Story<ArgTypes> = ({
   }
   return html`
   <event-display
-    .evt=${evts}
+    .evt=${evts}  panelName=${panelName}
   >
   </event-display>
   `
